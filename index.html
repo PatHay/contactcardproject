@@ -1,0 +1,100 @@
+<html>
+
+<head>
+    <title>Patrick's Contact Card</title>
+    <script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+			$("button").click(function(){
+				var first = $("#first").val();
+				var last = $("#last").val();
+				var desc = $("textarea").val();
+				$("#contact_box").append("<div id = 'card'><h>" + first + " " + last+"</h><p>Click for More Info!</p><p id = 'back'> " + desc +"</p></div>");
+				// $("#first").val("");
+				// $("#last").val("");
+				// $("#desc").val("");
+				// return false;
+			});
+			
+			$(document).on('click', '#card', function(){
+				$(this).children().toggle();
+			});
+		});
+    </script>
+    <style type="text/css">
+        * {
+            font-family: sans-serif;
+        }
+        body{
+            background-image: url("Star_Night.jpg");
+        }
+        h2,h1,h3 {
+            text-align: center;
+            margin: 0px;
+        }
+        p{
+            margin: 0px;
+        }
+
+        #add_box {
+            margin: 0px auto;
+            margin-top: 30px;
+            background-color: lightblue;
+            width: 600px;
+            height: 300px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        #contact_box {
+            margin: 0px auto;
+            margin-top: 30px;
+            width: 600px;
+            display: inline-block;
+            margin-left: 200px;
+            
+        }
+        #card{
+            height: 200px;
+            width: 200px;
+            background-color: green;
+            overflow: scroll;
+            display: inline-block;
+            border: 2px solid black;
+            text-align: center;
+            vertical-align: top;
+            padding: none;
+        }
+        #back{
+            height: 100px;
+            width: 150px;
+            background-color: green;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='add_box'>
+        <form>
+            <label>Add User</label>
+            <ul>
+                <li><label>First Name</label>
+                    <input placeholder="First Name" id="first"></input>
+                </li>
+                <li><label>Last Name</label>
+                    <input placeholder="Last Name" id="last"></input>
+                </li>
+                <li>
+                    <label>Description</label>
+                    <textarea rows="10" cols="50" placeholder="Description" id="desc"></textarea>
+                </li>
+            </ul>
+        </form>
+    <button id="btn">Click to Add</button>
+    </div>
+    <p id='contact_box'>
+    </p>
+</body>
+
+</html>
